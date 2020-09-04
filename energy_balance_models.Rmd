@@ -1,0 +1,24 @@
+---
+title: "Energy balance models"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Incoming solar radiation
+
+The incoming solar radiation *per unit area* is:
+
+$$
+S_{in} = S \frac{\pi R^2}{4 \pi R^2} = S/4 = 342 \  W/m^2
+$$
+
+where
+
+$S$ is the solar constant, $1.386 \ W/m^2$
+
+$\pi R^2$ is the area of a disk of earth radius R, representing the "half" of the earth receiving sunlight, and
+
+$4 \pi R^2$ is the surface area of the earth (we divide by that to get irradiance per unit area)
