@@ -22,3 +22,31 @@ $S$ is the solar constant, $1.386 \ W/m^2$
 $\pi R^2$ is the area of a disk of earth radius R, representing the "half" of the earth receiving sunlight, and
 
 $4 \pi R^2$ is the surface area of the earth (we divide by that to get irradiance per unit area)
+
+Thereof, the absorbed power is the non-reflected part:
+
+$$
+E_{in} = (1 - \alpha) S/4
+$$
+
+## Earth outgoing longwave radiation
+
+By the Stefan-Boltzmann law, the outgoing radiation is
+
+$$
+E_{out} = \epsilon \sigma T^4
+$$
+
+with
+
+$\epsilon$ the emissivity and
+
+$\sigma$ the Stefan-Boltzmann constant
+
+## Energy balance
+
+$$
+\epsilon \sigma T^4 = (1 - \alpha) S/4
+$$
+
+This would yield a temperature of 255K, about 33 degrees too low.

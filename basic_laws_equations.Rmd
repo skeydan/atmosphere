@@ -26,7 +26,7 @@ An increase in temperature leads to an increase in pressure, or volume, or both.
 With the specific gas constant:
 
 $$
-p V = n M R T 
+p V = n M R T = m R T
 $$
 
 where
@@ -35,10 +35,18 @@ $M$ = molar mass (weight of 1 mole), with unit $kg/mol$
 
 $R$ = $R^*/M$, with unit $Jkg^{-1}K^{-1}$
 
-Or, because $\frac{n \ M}{V} = \rho$ :
+$m$ = mass
+
+Or, with the specific volume $v = \frac{V}{m}$ :
 
 $$
-\rho = \frac{p}{T R}
+p v = R T
+$$
+
+Or, because $\frac{n \ M}{V} = \frac{1}{v} = \rho$ :
+
+$$
+p = \rho R T
 $$
 
 ## Hydrostatic equation

@@ -389,6 +389,27 @@ S_{in} = S \frac{\pi R^2}{4 \pi R^2} = S/4 = 342 \  W/m^2
 <p><span class="math inline">\(S\)</span> is the solar constant, <span class="math inline">\(1.386 \ W/m^2\)</span></p>
 <p><span class="math inline">\(\pi R^2\)</span> is the area of a disk of earth radius R, representing the “half” of the earth receiving sunlight, and</p>
 <p><span class="math inline">\(4 \pi R^2\)</span> is the surface area of the earth (we divide by that to get irradiance per unit area)</p>
+<p>Thereof, the absorbed power is the non-reflected part:</p>
+<p><span class="math display">\[
+E_{in} = (1 - \alpha) S/4
+\]</span></p>
+</div>
+<div id="earth-outgoing-longwave-radiation" class="section level2">
+<h2>Earth outgoing longwave radiation</h2>
+<p>By the Stefan-Boltzmann law, the outgoing radiation is</p>
+<p><span class="math display">\[
+E_{out} = \epsilon \sigma T^4
+\]</span></p>
+<p>with</p>
+<p><span class="math inline">\(\epsilon\)</span> the emissivity and</p>
+<p><span class="math inline">\(\sigma\)</span> the Stefan-Boltzmann constant</p>
+</div>
+<div id="energy-balance" class="section level2">
+<h2>Energy balance</h2>
+<p><span class="math display">\[
+\epsilon \sigma T^4 = (1 - \alpha) S/4
+\]</span></p>
+<p>This would yield a temperature of 255K, about 33 degrees too low.</p>
 </div>
 
 
