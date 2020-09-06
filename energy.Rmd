@@ -39,8 +39,6 @@ $$
 H = m c_p T
 $$
 
-Specific heat capacity is the amount of energy needed to warm a mass of 1 kg by 1K.
-
 The constant pressure process is more efficient at heat absorption, so
 
 $$

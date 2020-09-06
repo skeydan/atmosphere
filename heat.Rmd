@@ -1,0 +1,54 @@
+---
+title: "Heat and temperature"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Specific heat capacity
+
+Specific heat capacity is the amount of energy needed to warm a mass of 1 kg by 1K.
+
+When the volume stays constant, this is $c_v$, *specific heat at constant volume*. Here pressure must increase.
+
+When pressure stays constant, this is $c_p$, *specific heat at constant pressure*. Here the volume increases.
+
+Relevant constants are:
+
+##### Poisson constant
+
+$$
+\kappa = \frac{R}{c_p} = \frac{c_p - c_v}{c_p}
+$$
+
+##### $\eta$
+
+$$
+\eta = \frac{c_p}{c_v}
+$$
+
+## Potential temperature
+
+Potential temperature $\theta$ is the temperature of a particle brought to 1000hPa by an adiabatic process.
+
+$$
+\theta = T {(\frac{1000hPa}{p})}^\kappa
+$$
+
+or
+
+$$
+\frac{theta}{T}\ =  {(\frac{1000hPa}{p})}^\kappa
+$$
+
+## Virtual temperature
+
+Virtual temperature is the temperature a parcel would have, at the same pressure and with the same volume, if the air was dry:
+
+$$
+T_v = T + \Delta T = T + 0.608q T
+$$
+
+where $q$ is specific humidity.

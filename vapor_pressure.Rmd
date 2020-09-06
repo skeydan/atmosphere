@@ -1,0 +1,40 @@
+---
+title: "Vapor pressure and humidity"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Vapor pressure
+
+$e$ denotes vapor pressure, $E$ saturation vapor pressure.
+
+## Humidity
+
+Various measures exist for humidity, e.g.
+
+##### specific humidity
+
+$$
+q = \frac{m_{water \ vapor}}{m}
+$$
+
+##### relative humidity
+
+$$
+\frac{e}{E}
+$$
+
+## Relationship to heat
+
+Specific heat is different depending on whether air is dry or contains water vapor.
+
+$$
+\frac{c_p\ vapor}{c_p \ dry} = 1.87
+$$
+
+$$
+\frac{c_v\ vapor}{c_v \ dry} = 1.92
+$$
