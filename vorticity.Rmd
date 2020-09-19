@@ -1,0 +1,22 @@
+---
+title: "Vorticity and circulation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Vorticity
+
+Rotation is the cross product between a velocity field $v$ and the gradient vector:
+
+$$
+\nabla \times \mathbf{v} = \begin{vmatrix}i&j&k\\\frac{\partial}{\partial x}&\frac{\partial}{\partial y}&\frac{\partial}{\partial z}\\u&v&w\end{vmatrix}
+$$
+
+Vorticity is the vertical component of rotation:
+
+$$
+\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v}
+$$

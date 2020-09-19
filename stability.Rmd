@@ -1,0 +1,110 @@
+---
+title: "Vertical temperature gradient and stability"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Vertical gradient of potential temperature
+
+$$
+\frac{\partial  \theta}{\partial z} = \frac{\theta}{T} (\frac{\partial T}{\partial z} + \frac{g}{c_p}) \approx \frac{\partial T}{\partial z} + \Gamma
+$$
+
+where $\Gamma = \frac{g}{c_p}$ is defined to be the *adiabatic lapse rate*.
+
+## Adiabatic lapse rate
+
+If the potential temperature of an adiabatically-moving parcel stays constant at all elevations, meaning
+
+$$
+\frac{\partial  \theta}{\partial z} = 0
+$$
+
+the atmosphere is called adiabatic, and is characterized by the *adiabatic lapse rate*
+
+$$
+\Gamma = - \frac{\partial T}{\partial z} = \frac{g}{c_p}
+$$
+
+This theoretical state is used to characterize the *actual* atmosphere.
+
+## Stability
+
+Case 1: $\theta$ decreases with altitude:
+
+$$
+\frac{\partial T}{\partial z} < -\Gamma
+$$
+
+Here the atmosphere is unstable. A rising parcel will remain warmer than its surroundings, and will continue to rise.
+
+Case 2: $\theta$ increases with altitude:
+
+$$
+\frac{\partial T}{\partial z} < -\Gamma
+$$
+
+Here a rising particle will be colder than its environment and will redescend.
+
+## Archimedes' principle
+
+Any object, wholly or partially immersed in a fluid, is buoyed up by a force equal to the weight of the fluid displaced by the object:
+
+$$
+K = mass_p \frac{d^2 z}{dt^2} = (mass - mass_p) \ g
+$$
+
+where $mass$ is the mass of the fluid displaced, and $mass_p$ that of the particle.
+
+Acceleration due to buoyancy then is
+
+$$
+\frac{d^2 z}{dt^2} = \frac{\rho - \rho_p}{\rho_p} g
+$$
+
+That is, a particle denser than its environment is accelerated downward, a particle less dense is accelerated upward.
+
+Equivalently, a particle that is warmer will rise, one that is colder than its surroundings will descend.
+
+## Brunt-Väisälä frequency
+
+How does a buoyant particle move?
+
+With $Z$ defined as distance from the original height $z_0$, we have
+
+$$
+\frac{d^2 Z}{dt^2} = -\frac{g}{\theta_0} \frac{\partial \theta}{\partial z} Z
+$$
+
+or
+
+$$
+\frac{d^2 Z}{dt^2} + N^2 Z = 0
+$$
+
+where
+
+$$
+N = \sqrt{\frac{g}{\theta_0} \frac{\partial \theta}{\partial z}}
+$$
+
+is the Brunt-Väisälä frequency.
+
+Thus
+
+$$
+\frac{d^2 Z}{dt^2} = - N^2 Z
+$$
+
+In a stable atmosphere, a particle that gets displaced from its stable position oscillates like
+
+$$
+Z(t) = Z_{initial} \ cos(Nt)
+$$
+
+where $Z_{initial}$ is the initial displacement, giving the amplitude of the oscillation.
+
+Then $\tau = \frac{2\pi}{N}$ is the period.

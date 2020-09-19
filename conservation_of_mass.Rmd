@@ -1,0 +1,43 @@
+---
+title: "Conservation of mass"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In an Eulerian framework, the total (also called: material) derivative of a quantity that in the Lagrangian framework, varies w.r.t. time only, has 2 parts: a local derivative and an advection term:
+
+$$
+\frac{D \rho}{Dt} = \frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x} u + \frac{\partial \rho}{\partial y} v +  \frac{\partial \rho}{\partial z} w
+$$
+
+## Continuity equation (conservation of mass)
+
+Conservation of mass, in an Eulerian framework, means that no mass is gained or lost:
+
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{u}) = 0
+$$
+
+where
+
+$$
+\nabla \cdot(\rho \mathbf{u}) = \frac{\partial (\rho u)}{\partial x}  + \frac{\partial (\rho v)}{\partial y}  +  \frac{\partial (\rho w)}{\partial z} 
+$$
+
+is the divergence of $\rho \mathbf{u}$.
+
+Applying the product rule of derivatives, this means that
+
+$$
+\frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x} u + \frac{\partial \rho}{\partial y} v +  \frac{\partial \rho}{\partial z} w + \rho(\frac{\partial u} {\partial x} + \frac{\partial v} {\partial y} + \frac{\partial w} {\partial z}) = 0
+$$
+
+The change in mass may be split into two parts, the material derivative and density times the divergence of velocity:
+
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{u}) \
+= [\frac{\partial \rho}{\partial t} + ( \mathbf{u} \cdot \nabla)  \rho] + \rho \nabla \cdot \mathbf{u} = \frac{D \rho}{Dt} + \rho \nabla \cdot \mathbf{u} = 0
+$$

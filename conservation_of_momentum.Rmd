@@ -1,0 +1,12 @@
+---
+title: "Conservation of momentum"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+$$
+\frac{\partial u}{\partial t} = -(\mathbf{u} \cdot \nabla) \mathbf{u} - 2 \Omega \times \mathbf{u} - \frac{\nabla p}{\rho} + g
+$$-

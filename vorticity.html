@@ -11,7 +11,7 @@
 
 
 
-<title>Internal energy, enthalpy and entropy</title>
+<title>Vorticity and circulation</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -374,74 +374,21 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Internal energy, enthalpy and entropy</h1>
+<h1 class="title toc-ignore">Vorticity and circulation</h1>
 
 </div>
 
 
-<div id="internal-energy" class="section level2">
-<h2>Internal energy</h2>
-<p>The change in internal energy <span class="math inline">\(\Delta u\)</span> is</p>
+<div id="vorticity" class="section level2">
+<h2>Vorticity</h2>
+<p>Rotation is the cross product between a velocity field <span class="math inline">\(v\)</span> and the gradient vector:</p>
 <p><span class="math display">\[
-\Delta u = u_2 - u_1 = \int_{T_1}^{T_2} c_v(T) dT
+\nabla \times \mathbf{v} = \begin{vmatrix}i&amp;j&amp;k\\\frac{\partial}{\partial x}&amp;\frac{\partial}{\partial y}&amp;\frac{\partial}{\partial z}\\u&amp;v&amp;w\end{vmatrix}
 \]</span></p>
-<p>where <span class="math inline">\(c_v\)</span> is specific heat capacity at <em>constant volume</em>.</p>
-<p>Put differently, the internal energy <span class="math inline">\(U\)</span> is</p>
+<p>Vorticity is the vertical component of rotation:</p>
 <p><span class="math display">\[
-U = m c_v T
+\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v}
 \]</span></p>
-</div>
-<div id="enthalpy" class="section level2">
-<h2>Enthalpy</h2>
-<p>Enthalpy is internal energy plus potential energy (work done on the system):</p>
-<p><span class="math display">\[
-H = U + pV
-\]</span></p>
-<p>The change in enthalpy <span class="math inline">\(\Delta h\)</span> is</p>
-<p><span class="math display">\[
-\Delta h = h_2 - h_1 = \int_{T_1}^{T_2} c_p(T) dT
-\]</span></p>
-<p>where <span class="math inline">\(c_p\)</span> is specific heat capacity at <em>constant pressure</em>. Put differently,</p>
-<p><span class="math display">\[
-H = m c_p T
-\]</span></p>
-<p>The constant pressure process is more efficient at heat absorption, so</p>
-<p><span class="math display">\[
-c_p \ge c_v
-\]</span></p>
-<p>The difference between both is the specific gas constant:</p>
-<p><span class="math display">\[
-R = c_p - c_v
-\]</span></p>
-<p>The differential of enthalpy subsumes changes in internal energy as well as work done on a system:</p>
-<p><span class="math display">\[
-dH = dU + pdV + Vdp
-\]</span></p>
-<p>or</p>
-<p><span class="math display">\[
-dH = dQ + Vdp
-\]</span></p>
-</div>
-<div id="potential-energy" class="section level2">
-<h2>Potential energy</h2>
-<p>The change in potential energy is</p>
-<p><span class="math display">\[
-dE_p = g \ z \ dm = g\ z\ \rho\ dV = g\ z\ \rho\ F\ dz
-\]</span></p>
-</div>
-<div id="relationship-of-potential-and-internal-energy" class="section level2">
-<h2>Relationship of potential and internal energy</h2>
-<p><span class="math display">\[
-E_p = \frac{R}{c_v} \ E_i
-\]</span></p>
-</div>
-<div id="total-potential-energy" class="section level2">
-<h2>Total potential energy</h2>
-<p>Together, potential and internal energy make up the total potential energy. That is the same as <em>enthalpy</em>:</p>
-<p><span class="math display">\[
-E_{total} = E_p + U = \eta U = H
-\]</span></p>
-<p>where <span class="math inline">\(\eta = \frac{c_p}{c_v}\)</span></p>
 </div>
 
 

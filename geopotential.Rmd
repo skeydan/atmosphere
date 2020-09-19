@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 The geopotential $\Phi$ is the gravitational potential energy per unit mass at a given altitude z:
 
 $$
-\Phi(\phi, \theta, z, t) = \int_0^z g dz
+\Phi(\phi, \theta, z, t) = \int_0^z g dz = gz
 $$
 
 The geopotential height is

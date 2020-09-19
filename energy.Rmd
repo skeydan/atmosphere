@@ -7,13 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Enthalpy
-
-Enthalpy is internal energy plus potential energy (work done on the system):
-
-$$
-H = U + pV
-$$
+## Internal energy
 
 The change in internal energy $\Delta u$ is
 
@@ -21,10 +15,20 @@ $$
 \Delta u = u_2 - u_1 = \int_{T_1}^{T_2} c_v(T) dT
 $$
 
-where $c_v$ is specific heat capacity at *constant volume*. Put differently,
+where $c_v$ is specific heat capacity at *constant volume*.
+
+Put differently, the internal energy $U$ is
 
 $$
 U = m c_v T
+$$
+
+## Enthalpy
+
+Enthalpy is internal energy plus potential energy (work done on the system):
+
+$$
+H = U + pV
 $$
 
 The change in enthalpy $\Delta h$ is
@@ -62,3 +66,27 @@ or
 $$
 dH = dQ + Vdp
 $$
+
+## Potential energy
+
+The change in potential energy is
+
+$$
+dE_p = g \ z \ dm = g\ z\ \rho\ dV = g\ z\ \rho\ F\ dz
+$$
+
+## Relationship of potential and internal energy
+
+$$
+E_p = \frac{R}{c_v} \ E_i
+$$
+
+## Total potential energy
+
+Together, potential and internal energy make up the total potential energy. That is the same as *enthalpy*:
+
+$$
+E_{total} = E_p + U = \eta U = H
+$$
+
+where $\eta = \frac{c_p}{c_v}$
