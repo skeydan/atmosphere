@@ -387,21 +387,32 @@ summary {
 <h2>Continuity equation (conservation of mass)</h2>
 <p>Conservation of mass, in an Eulerian framework, means that no mass is gained or lost:</p>
 <p><span class="math display">\[
-\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{u}) = 0
+\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{v}) = 0
 \]</span></p>
 <p>where</p>
 <p><span class="math display">\[
-\nabla \cdot(\rho \mathbf{u}) = \frac{\partial (\rho u)}{\partial x}  + \frac{\partial (\rho v)}{\partial y}  +  \frac{\partial (\rho w)}{\partial z} 
+\nabla \cdot(\rho \mathbf{v}) = \frac{\partial (\rho u)}{\partial x}  + \frac{\partial (\rho v)}{\partial y}  +  \frac{\partial (\rho w)}{\partial z} 
 \]</span></p>
-<p>is the divergence of <span class="math inline">\(\rho \mathbf{u}\)</span>.</p>
+<p>is the divergence of <span class="math inline">\(\rho \mathbf{v}\)</span>.</p>
 <p>Applying the product rule of derivatives, this means that</p>
 <p><span class="math display">\[
 \frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x} u + \frac{\partial \rho}{\partial y} v +  \frac{\partial \rho}{\partial z} w + \rho(\frac{\partial u} {\partial x} + \frac{\partial v} {\partial y} + \frac{\partial w} {\partial z}) = 0
 \]</span></p>
 <p>The change in mass may be split into two parts, the material derivative and density times the divergence of velocity:</p>
 <p><span class="math display">\[
-\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{u}) \
-= [\frac{\partial \rho}{\partial t} + ( \mathbf{u} \cdot \nabla)  \rho] + \rho \nabla \cdot \mathbf{u} = \frac{D \rho}{Dt} + \rho \nabla \cdot \mathbf{u} = 0
+\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{v}) \
+= [\frac{\partial \rho}{\partial t} + ( \mathbf{v} \cdot \nabla)  \rho] + \rho \nabla \cdot \mathbf{v} = \frac{D \rho}{Dt} + \rho \nabla \cdot \mathbf{v} = 0
+\]</span></p>
+</div>
+<div id="incompressibility" class="section level2">
+<h2>Incompressibility</h2>
+<p>For an incompressible fluid,</p>
+<p><span class="math display">\[
+\frac{d \rho}{d t} = 0
+\]</span></p>
+<p>and thus, divergence of the velocity is zero:</p>
+<p><span class="math display">\[
+\nabla \cdot \mathbf{v} = 0
 \]</span></p>
 </div>
 

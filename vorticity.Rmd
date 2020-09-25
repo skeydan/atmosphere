@@ -9,14 +9,129 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Vorticity
 
-Rotation is the cross product between a velocity field $v$ and the gradient vector:
+*Rotation* is the cross product between a velocity field $v$ and the gradient vector:
 
 $$
 \nabla \times \mathbf{v} = \begin{vmatrix}i&j&k\\\frac{\partial}{\partial x}&\frac{\partial}{\partial y}&\frac{\partial}{\partial z}\\u&v&w\end{vmatrix}
 $$
 
-Vorticity is the vertical component of rotation:
+*Vorticity* is the vertical component of rotation:
 
 $$
-\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v}
+\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+$$
+
+Vorticity is the sum of shear vorticity and curvature vorticity. Shear vorticity refers to the change in wind speed normal to the direction of flow,
+
+$$
+- \frac{\partial}{\partial n} |\mathbf{v}|
+$$
+
+while curvature vorticity refers to the turning of the wind along a streamline:
+
+$$
+\frac{|\mathbf{v}|}{r}
+$$
+
+where $r$ is the radius of curvature.
+
+## Circulation
+
+Circulation is the integral along a closed curve of the velocity of a fluid flow (here $\mathbf{s}$ is the tangent vector):
+
+$$
+C = \oint_S \! \mathbf{v}\ \cdot \ d\mathbf{s}
+$$
+
+Circulation and rotation are related due to Stokes' theorem, as follows:
+
+$$
+\oint_S \! \mathbf{v}\ \cdot \ d\mathbf{s} = \iint_F (\nabla \times \mathbf{v}) \cdot d\mathbf{f}
+$$
+
+where $\mathbf{f}$ is the surface normal.
+
+Thus, circulation is the surface integral of the rotation of a velocity field.
+
+Choosing the surface normal in the direction of unit vector $\mathbf{\hat{k}}$, such that
+
+$$
+d\mathbf{f} = \mathbf{k}df
+$$, we get
+
+$$
+\begin{aligned}
+\iint_F (\nabla \times \mathbf{v}) \cdot d\mathbf{f} 
+&=\iint_F (\nabla \times \mathbf{v}) \cdot \mathbf{k} df\\
+&=\iint_F (\mathbf{k} \cdot \nabla \times \mathbf{v}) \cdot df\\
+&=\iint_F (\nabla \times \mathbf{v}) \cdot d\mathbf{f}\\
+&=\iint_F (\nabla \times \mathbf{v}) \cdot \mathbf{k} df\\
+&=\iint_F \zeta df
+\end{aligned}
+$$
+
+showing that circulation is a measure of *average vorticity*.
+
+## Stream function
+
+When a velocity field has zero divergence, $u$ and $v$ are no longer independent:
+
+$$
+\frac{\partial u}{\partial x} = - \frac{\partial v}{\partial y}
+$$
+
+In that case, they both depend on a scalar function $\Psi$, the stream function: They are its derivatives.
+
+$$
+\mathbf{v} = \mathbf{k} \times \nabla \Psi
+$$
+
+Equivalently:
+
+$$
+\begin{aligned}
+u = - \frac{\partial \Psi}{\partial y}\\
+v = - \frac{\partial \Psi}{\partial y}
+\end{aligned}
+$$
+
+Thus, the gradient of the stream function is orthogonal to the velocity.
+
+Put differently, the velocity vectors are tangent to the *stream lines* (lines of equal $\Psi$).
+
+TBD 7.7
+
+## Velocity potential
+
+When a velocity field has zero vorticity, $u$ and $v$ are not independent either:
+
+$$
+\frac{\partial v}{\partial x} =  \frac{\partial u}{\partial y}
+$$
+
+Then velocity is the gradient of a scalar function $\phi$, called velocity potential:
+
+$$
+\mathbf{v} = \nabla \phi
+$$
+
+Thus, lines of constant velocity potential are orthogonal to the velocity.
+
+TBD 7.9
+
+## Breakdown of a velocity field
+
+A velocity field can be broken up into divergence-free and vorticity-free components, like so:
+
+$$
+\mathbf{v} = \mathbf{k} \times \nabla \Psi + \nabla \phi
+$$
+
+$\Psi$ and $\phi$ can be mapped to divergence and vorticity like so:
+
+$$
+\begin{aligned}
+&D = \nabla \times \mathbf{v} = \nabla \times (\nabla \phi) = \nabla^2 \phi \\
+&\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v} = \nabla (\mathbf{k} \times \nabla \Psi) = \nabla^2 \Psi
+\end{aligned}
 $$

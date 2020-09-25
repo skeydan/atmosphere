@@ -18,16 +18,16 @@ $$
 Conservation of mass, in an Eulerian framework, means that no mass is gained or lost:
 
 $$
-\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{u}) = 0
+\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{v}) = 0
 $$
 
 where
 
 $$
-\nabla \cdot(\rho \mathbf{u}) = \frac{\partial (\rho u)}{\partial x}  + \frac{\partial (\rho v)}{\partial y}  +  \frac{\partial (\rho w)}{\partial z} 
+\nabla \cdot(\rho \mathbf{v}) = \frac{\partial (\rho u)}{\partial x}  + \frac{\partial (\rho v)}{\partial y}  +  \frac{\partial (\rho w)}{\partial z} 
 $$
 
-is the divergence of $\rho \mathbf{u}$.
+is the divergence of $\rho \mathbf{v}$.
 
 Applying the product rule of derivatives, this means that
 
@@ -38,6 +38,20 @@ $$
 The change in mass may be split into two parts, the material derivative and density times the divergence of velocity:
 
 $$
-\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{u}) \
-= [\frac{\partial \rho}{\partial t} + ( \mathbf{u} \cdot \nabla)  \rho] + \rho \nabla \cdot \mathbf{u} = \frac{D \rho}{Dt} + \rho \nabla \cdot \mathbf{u} = 0
+\frac{\partial \rho}{\partial t} + \nabla \cdot(\rho \mathbf{v}) \
+= [\frac{\partial \rho}{\partial t} + ( \mathbf{v} \cdot \nabla)  \rho] + \rho \nabla \cdot \mathbf{v} = \frac{D \rho}{Dt} + \rho \nabla \cdot \mathbf{v} = 0
+$$
+
+## Incompressibility
+
+For an incompressible fluid,
+
+$$
+\frac{d \rho}{d t} = 0
+$$
+
+and thus, divergence of the velocity is zero:
+
+$$
+\nabla \cdot \mathbf{v} = 0
 $$

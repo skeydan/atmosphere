@@ -7,6 +7,78 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Equations of motion (in an inertial frame)
+
+In the simplest form (not taking into account the earth's rotation), the equations of motion are:
+
 $$
-\frac{\partial u}{\partial t} = -(\mathbf{u} \cdot \nabla) \mathbf{u} - 2 \Omega \times \mathbf{u} - \frac{\nabla p}{\rho} + g
-$$-
+\frac{d \mathbf{v}}{d t} = \frac{\partial \mathbf{v}}{\partial t} +(\mathbf{v} \cdot \nabla) \mathbf{v} = -g \mathbf{k}- \frac{1}{\rho} {\nabla p}
+$$
+
+## Rotating system: Coriolis force and centrifugal force
+
+A particle moving relative to the earth has the following velocity in the inertial frame (whose center is located at the center of the earth):
+
+$$
+\mathbf{v_i} = \mathbf{v_e} + \mathbf{v_f}
+$$
+
+Here $\mathbf{v}_i$ is the velocity of a moving particle in the inertial system, $\mathbf{v}_e$ is the particle's velocity relative to the earth, and $\mathbf{v}_f$ is the velocity in the inertial system of a fixed point on the earth:
+
+$$
+\mathbf{v_f} = \bigg(\frac{d\mathbf{r}}{dt}\bigg)_i = \Omega \times \mathbf{r}
+$$
+
+with $\mathbf{r}$ being the position vector of the fixed point.
+
+TBD 9.7
+
+Acceleration in the inertial frame then is
+
+$$
+\begin{aligned}
+\bigg(\frac{d\mathbf{v}_i}{dt}\bigg)_i 
+&=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_i + \frac{d}{dt}\Omega \times \mathbf{r}\\
+&=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_i + \Omega \times \bigg(\frac{d\mathbf{r}}{dt}\bigg)_i \\
+&=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + \Omega \times \mathbf{v}_e + \Omega \times \bigg(\frac{d\mathbf{r}}{dt}\bigg)_e + \Omega \times \Omega \times \mathbf{r}\\
+&=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + \Omega \times \mathbf{v}_e + \Omega \times \mathbf{v}_e + \Omega \times \Omega \times \mathbf{r}\\
+&=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + 2\  \Omega \times \mathbf{v}_e +  + \Omega \times \Omega \times \mathbf{r}\\
+\end{aligned}
+$$
+
+We thus have, besides acceleration in the non-inertial system, two other ones: Coriolis acceleation and centrifugal acceleration.
+
+## Centrifugal acceleration
+
+TBD 9.8
+
+The centrifugal force is perpendicular to both $\Omega$ and $\Omega \times \mathbf{r}$, and thus, points away from the earth.
+
+## Coriolis acceleration
+
+Coriolis acceleration is perpendicular to both $\Omega$ and $\mathbf{v}$, and thus, points to the right (Northern hemisphere) or left (Northern hemisphere) of a moving particle.
+
+TBD 9.9
+
+We now switch to a Cartesian coordinate system tangential to the earth's surface, with the x axis pointing to the East, parallel to the lines of latitude.
+
+TBD 9.10
+
+In this system, the earth's rotation is split up in two parts, a horizontal and a vertical one:
+
+$$
+\boldsymbol{\Omega} = \omega \ cos \ \phi \ \mathbf{j} + \omega \ sin \ \phi \ \mathbf{k}
+$$
+
+If we now define vertical and horizontal Coriolis parameters as follows
+
+$$
+f = 2 \ \omega \ sin \ \phi\\
+f^* = 2 \ \omega \ cos \ \phi
+$$
+
+we can describe the Coriolis force as follows
+
+$$
+- 2 \Omega \times \mathbf{v} = \begin{vmatrix}i&j&k\\0&f^*&f\\u&v&w\end{vmatrix}
+$$

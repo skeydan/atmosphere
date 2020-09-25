@@ -379,9 +379,63 @@ summary {
 </div>
 
 
+<div id="equations-of-motion-in-an-inertial-frame" class="section level2">
+<h2>Equations of motion (in an inertial frame)</h2>
+<p>In the simplest form (not taking into account the earth’s rotation), the equations of motion are:</p>
 <p><span class="math display">\[
-\frac{\partial u}{\partial t} = -(\mathbf{u} \cdot \nabla) \mathbf{u} - 2 \Omega \times \mathbf{u} - \frac{\nabla p}{\rho} + g
-\]</span>-</p>
+\frac{d \mathbf{v}}{d t} = \frac{\partial \mathbf{v}}{\partial t} +(\mathbf{v} \cdot \nabla) \mathbf{v} = -g \mathbf{k}- \frac{1}{\rho} {\nabla p}
+\]</span></p>
+</div>
+<div id="rotating-system-coriolis-force-and-centrifugal-force" class="section level2">
+<h2>Rotating system: Coriolis force and centrifugal force</h2>
+<p>A particle moving relative to the earth has the following velocity in the inertial frame (whose center is located at the center of the earth):</p>
+<p><span class="math display">\[
+\mathbf{v_i} = \mathbf{v_e} + \mathbf{v_f}
+\]</span></p>
+<p>Here <span class="math inline">\(\mathbf{v}_i\)</span> is the velocity of a moving particle in the inertial system, <span class="math inline">\(\mathbf{v}_e\)</span> is the particle’s velocity relative to the earth, and <span class="math inline">\(\mathbf{v}_f\)</span> is the velocity in the inertial system of a fixed point on the earth:</p>
+<p><span class="math display">\[
+\mathbf{v_f} = \bigg(\frac{d\mathbf{r}}{dt}\bigg)_i = \Omega \times \mathbf{r}
+\]</span></p>
+<p>with <span class="math inline">\(\mathbf{r}\)</span> being the position vector of the fixed point.</p>
+<p>TBD 9.7</p>
+<p>Acceleration in the inertial frame then is</p>
+<p><span class="math display">\[
+\begin{aligned}
+\bigg(\frac{d\mathbf{v}_i}{dt}\bigg)_i 
+&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_i + \frac{d}{dt}\Omega \times \mathbf{r}\\
+&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_i + \Omega \times \bigg(\frac{d\mathbf{r}}{dt}\bigg)_i \\
+&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + \Omega \times \mathbf{v}_e + \Omega \times \bigg(\frac{d\mathbf{r}}{dt}\bigg)_e + \Omega \times \Omega \times \mathbf{r}\\
+&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + \Omega \times \mathbf{v}_e + \Omega \times \mathbf{v}_e + \Omega \times \Omega \times \mathbf{r}\\
+&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + 2\  \Omega \times \mathbf{v}_e +  + \Omega \times \Omega \times \mathbf{r}\\
+\end{aligned}
+\]</span></p>
+<p>We thus have, besides acceleration in the non-inertial system, two other ones: Coriolis acceleation and centrifugal acceleration.</p>
+</div>
+<div id="centrifugal-acceleration" class="section level2">
+<h2>Centrifugal acceleration</h2>
+<p>TBD 9.8</p>
+<p>The centrifugal force is perpendicular to both <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\Omega \times \mathbf{r}\)</span>, and thus, points away from the earth.</p>
+</div>
+<div id="coriolis-acceleration" class="section level2">
+<h2>Coriolis acceleration</h2>
+<p>Coriolis acceleration is perpendicular to both <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\mathbf{v}\)</span>, and thus, points to the right (Northern hemisphere) or left (Northern hemisphere) of a moving particle.</p>
+<p>TBD 9.9</p>
+<p>We now switch to a Cartesian coordinate system tangential to the earth’s surface, with the x axis pointing to the East, parallel to the lines of latitude.</p>
+<p>TBD 9.10</p>
+<p>In this system, the earth’s rotation is split up in two parts, a horizontal and a vertical one:</p>
+<p><span class="math display">\[
+\boldsymbol{\Omega} = \omega \ cos \ \phi \ \mathbf{j} + \omega \ sin \ \phi \ \mathbf{k}
+\]</span></p>
+<p>If we now define vertical and horizontal Coriolis parameters as follows</p>
+<p><span class="math display">\[
+f = 2 \ \omega \ sin \ \phi\\
+f^* = 2 \ \omega \ cos \ \phi
+\]</span></p>
+<p>we can describe the Coriolis force as follows</p>
+<p><span class="math display">\[
+- 2 \Omega \times \mathbf{v} = \begin{vmatrix}i&amp;j&amp;k\\0&amp;f^*&amp;f\\u&amp;v&amp;w\end{vmatrix}
+\]</span></p>
+</div>
 
 
 

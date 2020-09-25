@@ -381,13 +381,98 @@ summary {
 
 <div id="vorticity" class="section level2">
 <h2>Vorticity</h2>
-<p>Rotation is the cross product between a velocity field <span class="math inline">\(v\)</span> and the gradient vector:</p>
+<p><em>Rotation</em> is the cross product between a velocity field <span class="math inline">\(v\)</span> and the gradient vector:</p>
 <p><span class="math display">\[
 \nabla \times \mathbf{v} = \begin{vmatrix}i&amp;j&amp;k\\\frac{\partial}{\partial x}&amp;\frac{\partial}{\partial y}&amp;\frac{\partial}{\partial z}\\u&amp;v&amp;w\end{vmatrix}
 \]</span></p>
-<p>Vorticity is the vertical component of rotation:</p>
+<p><em>Vorticity</em> is the vertical component of rotation:</p>
 <p><span class="math display">\[
-\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v}
+\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+\]</span></p>
+<p>Vorticity is the sum of shear vorticity and curvature vorticity. Shear vorticity refers to the change in wind speed normal to the direction of flow,</p>
+<p><span class="math display">\[
+- \frac{\partial}{\partial n} |\mathbf{v}|
+\]</span></p>
+<p>while curvature vorticity refers to the turning of the wind along a streamline:</p>
+<p><span class="math display">\[
+\frac{|\mathbf{v}|}{r}
+\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is the radius of curvature.</p>
+</div>
+<div id="circulation" class="section level2">
+<h2>Circulation</h2>
+<p>Circulation is the integral along a closed curve of the velocity of a fluid flow (here <span class="math inline">\(\mathbf{s}\)</span> is the tangent vector):</p>
+<p><span class="math display">\[
+C = \oint_S \! \mathbf{v}\ \cdot \ d\mathbf{s}
+\]</span></p>
+<p>Circulation and rotation are related due to Stokes’ theorem, as follows:</p>
+<p><span class="math display">\[
+\oint_S \! \mathbf{v}\ \cdot \ d\mathbf{s} = \iint_F (\nabla \times \mathbf{v}) \cdot d\mathbf{f}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{f}\)</span> is the surface normal.</p>
+<p>Thus, circulation is the surface integral of the rotation of a velocity field.</p>
+<p>Choosing the surface normal in the direction of unit vector <span class="math inline">\(\mathbf{\hat{k}}\)</span>, such that</p>
+<p><span class="math display">\[
+d\mathbf{f} = \mathbf{k}df
+\]</span>, we get</p>
+<p><span class="math display">\[
+\begin{aligned}
+\iint_F (\nabla \times \mathbf{v}) \cdot d\mathbf{f} 
+&amp;=\iint_F (\nabla \times \mathbf{v}) \cdot \mathbf{k} df\\
+&amp;=\iint_F (\mathbf{k} \cdot \nabla \times \mathbf{v}) \cdot df\\
+&amp;=\iint_F (\nabla \times \mathbf{v}) \cdot d\mathbf{f}\\
+&amp;=\iint_F (\nabla \times \mathbf{v}) \cdot \mathbf{k} df\\
+&amp;=\iint_F \zeta df
+\end{aligned}
+\]</span></p>
+<p>showing that circulation is a measure of <em>average vorticity</em>.</p>
+</div>
+<div id="stream-function" class="section level2">
+<h2>Stream function</h2>
+<p>When a velocity field has zero divergence, <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are no longer independent:</p>
+<p><span class="math display">\[
+\frac{\partial u}{\partial x} = - \frac{\partial v}{\partial y}
+\]</span></p>
+<p>In that case, they both depend on a scalar function <span class="math inline">\(\Psi\)</span>, the stream function: They are its derivatives.</p>
+<p><span class="math display">\[
+\mathbf{v} = \mathbf{k} \times \nabla \Psi
+\]</span></p>
+<p>Equivalently:</p>
+<p><span class="math display">\[
+\begin{aligned}
+u = - \frac{\partial \Psi}{\partial y}\\
+v = - \frac{\partial \Psi}{\partial y}
+\end{aligned}
+\]</span></p>
+<p>Thus, the gradient of the stream function is orthogonal to the velocity.</p>
+<p>Put differently, the velocity vectors are tangent to the <em>stream lines</em> (lines of equal <span class="math inline">\(\Psi\)</span>).</p>
+<p>TBD 7.7</p>
+</div>
+<div id="velocity-potential" class="section level2">
+<h2>Velocity potential</h2>
+<p>When a velocity field has zero vorticity, <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are not independent either:</p>
+<p><span class="math display">\[
+\frac{\partial v}{\partial x} =  \frac{\partial u}{\partial y}
+\]</span></p>
+<p>Then velocity is the gradient of a scalar function <span class="math inline">\(\phi\)</span>, called velocity potential:</p>
+<p><span class="math display">\[
+\mathbf{v} = \nabla \phi
+\]</span></p>
+<p>Thus, lines of constant velocity potential are orthogonal to the velocity.</p>
+<p>TBD 7.9</p>
+</div>
+<div id="breakdown-of-a-velocity-field" class="section level2">
+<h2>Breakdown of a velocity field</h2>
+<p>A velocity field can be broken up into divergence-free and vorticity-free components, like so:</p>
+<p><span class="math display">\[
+\mathbf{v} = \mathbf{k} \times \nabla \Psi + \nabla \phi
+\]</span></p>
+<p><span class="math inline">\(\Psi\)</span> and <span class="math inline">\(\phi\)</span> can be mapped to divergence and vorticity like so:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;D = \nabla \times \mathbf{v} = \nabla \times (\nabla \phi) = \nabla^2 \phi \\
+&amp;\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v} = \nabla (\mathbf{k} \times \nabla \Psi) = \nabla^2 \Psi
+\end{aligned}
 \]</span></p>
 </div>
 
