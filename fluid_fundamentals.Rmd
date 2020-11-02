@@ -1,0 +1,142 @@
+---
+title: "Fluid fundamentals"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lagrangian vs. Eulerian viewpoints
+
+-   Lagrangian (material): follows the moving parcel
+
+-   Eulerian (field): examines properties at fixed points
+
+## Material (Lagrangian) derivative
+
+The material derivative is denoted by $D$.
+
+#### Of a fluid property
+
+The total time derivative of a property $\Phi$ of a piece of fluid is
+
+$$
+\frac{d\phi}{dt} = \frac{\partial\phi}{\partial t} + \frac{d\mathbf{x}}{dt} \cdot \nabla \phi
+$$
+
+Here $\frac{\partial\phi}{\partial t}$ is the local rate of change of the property, while $\frac{d\mathbf{x}}{dt} = \mathbf{v}$ is the rate of change of position of the fluid. The material derivative then is
+
+$$
+\begin{aligned}
+\frac{D\phi}{Dt} 
+&=\frac{\partial\phi}{\partial t} + (\mathbf{v} \cdot \nabla) \phi\\
+&=\frac{\partial\phi}{\partial t} + u \frac{\partial \phi}{\partial x}  + v \frac{\partial \phi}{\partial y}   +  w \frac{\partial \phi}{\partial z}
+\end{aligned}
+$$
+
+Here the operator $\frac{\partial}{\partial t} + (\mathbf{v} \cdot \nabla)$ is the Eulerian representation of the Lagrangian derivative as applied to a field.
+
+#### Of a vector field
+
+$$
+\begin{aligned}
+\frac{D\mathbf{b}}{Dt} 
+&=\frac{\partial\mathbf{b}}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{b}\\
+&=\frac{\partial\mathbf{b}}{\partial t} + u \frac{\partial \mathbf{b}}{\partial x}  + v \frac{\partial \mathbf{b}}{\partial y}   +  w \frac{\partial \mathbf{b}}{\partial z}
+\end{aligned}
+$$
+
+in Cartesian coordinates.
+
+## Mass conservation
+
+#### As derived in an Eulerian framework
+
+As mass is conserved, inflow of fluid into a cube of constant volume (control volume) must be accompanied by a corresponding increase in fluid mass within the control volume:
+
+Thus,
+
+$$
+\frac{\partial}{\partial t} (density * volume) =  - \Delta x \Delta y \Delta z \ \Big[\frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z}\Big] 
+$$
+
+As the volume is constant,
+
+$$
+\Delta x \Delta y \Delta z \ \frac{\partial \rho}{\partial t} = - \Delta x \Delta y \Delta z \ \Big[\frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z}\Big] 
+$$
+
+Or
+
+$$
+ \Delta x \Delta y \Delta z \ \Big[\frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z}\Big] = 0
+$$
+
+which implies
+
+$$
+\frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0
+$$
+
+or
+
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0
+$$
+
+#### As derived in a Lagrangian framework
+
+Conservation of mass for a small parcel of fluid of volume $\Delta V$ means
+
+$$
+\frac{D}{Dt}(\rho \Delta V) = 0
+$$
+
+As both density and volume may change,
+
+$$
+\Delta V \frac{D\rho}{Dt} + \rho \frac{D \Delta V}{Dt} = \Delta V (\frac{D\rho}{Dt} +  \rho \nabla \cdot\mathbf{v})  = 0
+$$
+
+So
+
+$$
+\begin{aligned}
+&\frac{D\rho}{Dt} +  \rho \nabla \cdot\mathbf{v}  = 0
+\end{aligned}
+$$
+
+where
+
+$$
+\begin{aligned}
+\frac{D\rho}{Dt} +  \rho \nabla \cdot\mathbf{v} 
+&=\frac{\partial\rho}{\partial t} + u \frac{\partial \rho}{\partial x}  + v \frac{\partial \rho}{\partial y}   +  w \frac{\partial \rho}{\partial z} +  \rho \nabla \cdot\mathbf{v} \\
+&=\frac{\partial\rho}{\partial t} + u \frac{\partial \rho}{\partial x}  + v \frac{\partial \rho}{\partial y}   +  w \frac{\partial \rho}{\partial z} +  \rho \frac{\partial u}{ \partial x} + \frac{\partial v}{\partial y} + \rho \frac{\partial w}{\partial z}
+\end{aligned}
+$$
+
+which is equivalent to
+
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v})
+$$
+
+#### Equivalent formulations
+
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0
+$$
+
+$$
+\frac{D\rho}{Dt} +  \rho \nabla \cdot\mathbf{v}  = 0
+$$
+
+#### For incompressible fluids
+
+$$
+\nabla \cdot \mathbf{v} = 0
+$$
+
+## Momentum equation

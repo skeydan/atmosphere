@@ -80,5 +80,53 @@ $$
 we can describe the Coriolis force as follows
 
 $$
-- 2 \Omega \times \mathbf{v} = \begin{vmatrix}i&j&k\\0&f^*&f\\u&v&w\end{vmatrix}
+- 2 \Omega \times \mathbf{v} = - \begin{vmatrix}i&j&k\\0&f^*&f\\u&v&w\end{vmatrix}
+$$
+
+The horizontal part thus amounts to
+
+$$
+\bigg(\frac{d\mathbf{v}_h}{dt}\bigg)_{Cor} = fv \mathbf{i} - fu \mathbf{j} = -f \ \mathbf{k} \times \mathbf{v}_h
+$$
+
+## Equations of motion (in the rotating frame)
+
+$$
+\frac{d \mathbf{v}}{d t} + 2 \Omega \times \mathbf{v}= \frac{\partial \mathbf{v}}{\partial t} +(\mathbf{v} \cdot \nabla) \mathbf{v} + 2 \Omega \times \mathbf{v} = -g \mathbf{k}- \frac{1}{\rho} {\nabla p}
+$$
+
+For individual components:
+
+$$
+\begin{aligned}
+&\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} u + \frac{\partial u}{\partial y} v +  \frac{\partial u}{\partial z} w - fv + f^* w = - \frac{1}{\rho} \frac{\partial p}{\partial x} \\
+&\frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} u + \frac{\partial v}{\partial y} v +  \frac{\partial v}{\partial z} w + fu = - \frac{1}{\rho} \frac{\partial p}{\partial y}\\
+&\frac{\partial w}{\partial t} + \frac{\partial w}{\partial x} u + \frac{\partial w}{\partial y} v +  \frac{\partial w}{\partial z} w - f^* w = - \frac{1}{\rho} \frac{\partial p}{\partial z} - g
+\end{aligned}
+$$
+
+Simplifying, assuming purely horizontal fluids:
+
+$$
+\begin{aligned}
+&\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} u + \frac{\partial u}{\partial y} v  - fv  = - \frac{1}{\rho} \frac{\partial p}{\partial x} \\
+&\frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} u + \frac{\partial v}{\partial y} v + fu = - \frac{1}{\rho} \frac{\partial p}{\partial y}\\
+\end{aligned}
+$$
+
+## Equations of motion and continuity equation in the p system
+
+Horizontal equations of motion:
+
+$$
+\begin{aligned}
+&\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} u + \frac{\partial u}{\partial y} v  + \omega \frac{\partial u}{\partial p}- fv  = - \frac{\partial \Phi}{\partial x} \\
+&\frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} u + \frac{\partial v}{\partial y} v + \omega \frac{\partial v}{\partial p} + fu = - \frac{1}{\rho} \frac{\partial \Phi}{\partial y}\\
+\end{aligned}
+$$
+
+Continuity equation:
+
+$$
+\nabla \cdot \mathbf{v} = \frac{\partial u}{\partial x}  + \frac{\partial v}{\partial y}   +  \frac{\partial \omega}{\partial p} = 0
 $$

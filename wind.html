@@ -11,7 +11,7 @@
 
 
 
-<title>Conservation of momentum</title>
+<title>Wind</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -374,106 +374,110 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Conservation of momentum</h1>
+<h1 class="title toc-ignore">Wind</h1>
 
 </div>
 
 
-<div id="equations-of-motion-in-an-inertial-frame" class="section level2">
-<h2>Equations of motion (in an inertial frame)</h2>
-<p>In the simplest form (not taking into account the earth’s rotation), the equations of motion are:</p>
+<div id="geostrophic-wind" class="section level2">
+<h2>Geostrophic wind</h2>
+<p>Assuming a <em>horizontal</em> fluid that is (1) stationary</p>
 <p><span class="math display">\[
-\frac{d \mathbf{v}}{d t} = \frac{\partial \mathbf{v}}{\partial t} +(\mathbf{v} \cdot \nabla) \mathbf{v} = -g \mathbf{k}- \frac{1}{\rho} {\nabla p}
+\frac{\partial \mathbf{v}}{\partial t} = 0
+\]</span></p>
+<p>and (2) horizontally homogeneous</p>
+<p><span class="math display">\[
+(\mathbf{v} \cdot \nabla) \mathbf{v} = 0
+\]</span></p>
+<p>(such that overall the system is free of acceleration:</p>
+<p><span class="math display">\[
+\frac{d \mathbf{v}}{d t} = 0
+\]</span></p>
+<p>Coriolis force and gradient force compensate each other:</p>
+<p><span class="math display">\[
+f \ \mathbf{k} \times \mathbf{v}_h = \frac{1}{\rho} {\nabla_h p}
+\]</span></p>
+<p>Then the horizontal velocity <span class="math inline">\(\mathbf{v}_h\)</span> amounts to</p>
+<p><span class="math display">\[
+\mathbf{v}_h = \frac{1}{\rho f} \mathbf{k} \times {\nabla_h p}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{v}_h = \frac{1}{\rho f} \  \begin{vmatrix}i&amp;j&amp;k\\0&amp;0&amp;1\\\frac{\partial p}{\partial x}&amp;\frac{\partial p}{\partial y}&amp;\frac{\partial p}{\partial z}\end{vmatrix}
+\]</span></p>
+<p>or in components</p>
+<p><span class="math display">\[
+u = - \frac{1}{\rho f} \frac{\partial p}{\partial y}\\
+v = + \frac{1}{\rho f} \frac{\partial p}{\partial x}
+\]</span></p>
+<p>TBD 10.1</p>
+<p>Geostrophic wind is perpendicular to the pressure gradient and thus, parallel to the isobars, with low pressure to the left.</p>
+</div>
+<div id="thermal-wind" class="section level2">
+<h2>Thermal wind</h2>
+<p>This is not really a wind, but refers to the change in <em>geostrophic wind with height</em>. A precondition is horizontal variation in temperature:</p>
+<p><span class="math display">\[
+\frac{\partial \mathbf{v}_{geo}}{\partial z} \sim \frac{g}{fT} \mathbf{k} \times \nabla_h T
+\]</span></p>
+<p>TBD 10.3</p>
+<p>Thermal wind thus is perpendicular to the temperature gradient, with warmer temperatures to the right.</p>
+<p>10.5</p>
+</div>
+<div id="geostrophic-and-thermal-winds-in-the-p-system" class="section level2">
+<h2>Geostrophic and thermal winds in the p system</h2>
+<p>Geostrophic:</p>
+<p><span class="math display">\[
+\mathbf{v}_h = \frac{1}{ f} \mathbf{k} \times {\nabla_h \Phi}
+\]</span></p>
+<p>Or, in components:</p>
+<p><span class="math display">\[
+u = - \frac{1}{f} \frac{\partial \Phi}{\partial y}\\
+v = + \frac{1}{f} \frac{\partial \Phi}{\partial x}
+\]</span></p>
+<p>Thermal:</p>
+<p><span class="math display">\[
+\frac{\partial \mathbf{v}_{geo}}{\partial p} \sim - \frac{R}{fp} \mathbf{k} \times \nabla_h T
 \]</span></p>
 </div>
-<div id="rotating-system-coriolis-force-and-centrifugal-force" class="section level2">
-<h2>Rotating system: Coriolis force and centrifugal force</h2>
-<p>A particle moving relative to the earth has the following velocity in the inertial frame (whose center is located at the center of the earth):</p>
+<div id="barotropic-and-baroclinic-atmospheres" class="section level2">
+<h2>Barotropic and baroclinic atmospheres</h2>
+<p>An atmosphere is called <em>barotropic</em> if isobars and lines of equal density (and their respective gradients) are parallel:</p>
 <p><span class="math display">\[
-\mathbf{v_i} = \mathbf{v_e} + \mathbf{v_f}
+\nabla \rho \times \nabla p = 0
 \]</span></p>
-<p>Here <span class="math inline">\(\mathbf{v}_i\)</span> is the velocity of a moving particle in the inertial system, <span class="math inline">\(\mathbf{v}_e\)</span> is the particle’s velocity relative to the earth, and <span class="math inline">\(\mathbf{v}_f\)</span> is the velocity in the inertial system of a fixed point on the earth:</p>
+<p>Equivalently - due to <span class="math inline">\(p = \rho R T\)</span> – we have</p>
 <p><span class="math display">\[
-\mathbf{v_f} = \bigg(\frac{d\mathbf{r}}{dt}\bigg)_i = \Omega \times \mathbf{r}
+\nabla T \times \nabla p = 0
 \]</span></p>
-<p>with <span class="math inline">\(\mathbf{r}\)</span> being the position vector of the fixed point.</p>
-<p>TBD 9.7</p>
-<p>Acceleration in the inertial frame then is</p>
+<p>and</p>
 <p><span class="math display">\[
-\begin{aligned}
-\bigg(\frac{d\mathbf{v}_i}{dt}\bigg)_i 
-&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_i + \frac{d}{dt}\Omega \times \mathbf{r}\\
-&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_i + \Omega \times \bigg(\frac{d\mathbf{r}}{dt}\bigg)_i \\
-&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + \Omega \times \mathbf{v}_e + \Omega \times \bigg(\frac{d\mathbf{r}}{dt}\bigg)_e + \Omega \times \Omega \times \mathbf{r}\\
-&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + \Omega \times \mathbf{v}_e + \Omega \times \mathbf{v}_e + \Omega \times \Omega \times \mathbf{r}\\
-&amp;=\bigg(\frac{d\mathbf{v}_e}{dt}\bigg)_e + 2\  \Omega \times \mathbf{v}_e +  + \Omega \times \Omega \times \mathbf{r}\\
-\end{aligned}
+\nabla T \times \nabla \rho = 0
 \]</span></p>
-<p>We thus have, besides acceleration in the non-inertial system, two other ones: Coriolis acceleation and centrifugal acceleration.</p>
-</div>
-<div id="centrifugal-acceleration" class="section level2">
-<h2>Centrifugal acceleration</h2>
-<p>TBD 9.8</p>
-<p>The centrifugal force is perpendicular to both <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\Omega \times \mathbf{r}\)</span>, and thus, points away from the earth.</p>
-</div>
-<div id="coriolis-acceleration" class="section level2">
-<h2>Coriolis acceleration</h2>
-<p>Coriolis acceleration is perpendicular to both <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\mathbf{v}\)</span>, and thus, points to the right (Northern hemisphere) or left (Northern hemisphere) of a moving particle.</p>
-<p>TBD 9.9</p>
-<p>We now switch to a Cartesian coordinate system tangential to the earth’s surface, with the x axis pointing to the East, parallel to the lines of latitude.</p>
-<p>TBD 9.10</p>
-<p>In this system, the earth’s rotation is split up in two parts, a horizontal and a vertical one:</p>
+<p>So all of density, pressure, and temperature gradients are parallel.</p>
+<p>In a <em>baroclinic</em> atmosphere though, there is a temperature gradient on surfaces of constant pressure. Consequently, geostrophic wind changes with altitude (pressure).</p>
+<p>Therefore, for baroclinic conditions</p>
 <p><span class="math display">\[
-\boldsymbol{\Omega} = \omega \ cos \ \phi \ \mathbf{j} + \omega \ sin \ \phi \ \mathbf{k}
+\frac{\partial \mathbf{v}_{geo}}{\partial p} \neq 0
 \]</span></p>
-<p>If we now define vertical and horizontal Coriolis parameters as follows</p>
+<p>while for barotropic ones</p>
 <p><span class="math display">\[
-f = 2 \ \omega \ sin \ \phi\\
-f^* = 2 \ \omega \ cos \ \phi
-\]</span></p>
-<p>we can describe the Coriolis force as follows</p>
-<p><span class="math display">\[
-- 2 \Omega \times \mathbf{v} = - \begin{vmatrix}i&amp;j&amp;k\\0&amp;f^*&amp;f\\u&amp;v&amp;w\end{vmatrix}
-\]</span></p>
-<p>The horizontal part thus amounts to</p>
-<p><span class="math display">\[
-\bigg(\frac{d\mathbf{v}_h}{dt}\bigg)_{Cor} = fv \mathbf{i} - fu \mathbf{j} = -f \ \mathbf{k} \times \mathbf{v}_h
+\frac{\partial \mathbf{v}_{geo}}{\partial p} = 0
 \]</span></p>
 </div>
-<div id="equations-of-motion-in-the-rotating-frame" class="section level2">
-<h2>Equations of motion (in the rotating frame)</h2>
+<div id="gradient-wind" class="section level2">
+<h2>Gradient wind</h2>
+<p>Under realistic conditions, <span class="math inline">\(\frac{\partial \mathbf{v}}{\partial t}\)</span> will not be true, and as <span class="math inline">\(\mathbf{v}\)</span> is perpendicular to the isobars, these will not be able to be parallel. For curved isobars, of radius of curvature R, we have</p>
 <p><span class="math display">\[
-\frac{d \mathbf{v}}{d t} + 2 \Omega \times \mathbf{v}= \frac{\partial \mathbf{v}}{\partial t} +(\mathbf{v} \cdot \nabla) \mathbf{v} + 2 \Omega \times \mathbf{v} = -g \mathbf{k}- \frac{1}{\rho} {\nabla p}
+\frac{|\mathbf{v}_{geo}|}{|\mathbf{v}|} = 1 + \frac{|\mathbf{v}|}{fR}
 \]</span></p>
-<p>For individual components:</p>
+<p>Thus for <span class="math inline">\(\lim_{R \to +\infty}\)</span>, gradient wind and geostrophic wind are equal.</p>
+<p>The above correction term is equal to the relationship between centrifugal force and Coriolis force:</p>
 <p><span class="math display">\[
-\begin{aligned}
-&amp;\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} u + \frac{\partial u}{\partial y} v +  \frac{\partial u}{\partial z} w - fv + f^* w = - \frac{1}{\rho} \frac{\partial p}{\partial x} \\
-&amp;\frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} u + \frac{\partial v}{\partial y} v +  \frac{\partial v}{\partial z} w + fu = - \frac{1}{\rho} \frac{\partial p}{\partial y}\\
-&amp;\frac{\partial w}{\partial t} + \frac{\partial w}{\partial x} u + \frac{\partial w}{\partial y} v +  \frac{\partial w}{\partial z} w - f^* w = - \frac{1}{\rho} \frac{\partial p}{\partial z} - g
-\end{aligned}
-\]</span></p>
-<p>Simplifying, assuming purely horizontal fluids:</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} u + \frac{\partial u}{\partial y} v  - fv  = - \frac{1}{\rho} \frac{\partial p}{\partial x} \\
-&amp;\frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} u + \frac{\partial v}{\partial y} v + fu = - \frac{1}{\rho} \frac{\partial p}{\partial y}\\
-\end{aligned}
+\frac{|\mathbf{v}|}{fR} = \frac{|\mathbf{v}|^2}{fR|\mathbf{v}|} = \frac{Z}{C}
 \]</span></p>
 </div>
-<div id="equations-of-motion-and-continuity-equation-in-the-p-system" class="section level2">
-<h2>Equations of motion and continuity equation in the p system</h2>
-<p>Horizontal equations of motion:</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} u + \frac{\partial u}{\partial y} v  + \omega \frac{\partial u}{\partial p}- fv  = - \frac{\partial \Phi}{\partial x} \\
-&amp;\frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} u + \frac{\partial v}{\partial y} v + \omega \frac{\partial v}{\partial p} + fu = - \frac{1}{\rho} \frac{\partial \Phi}{\partial y}\\
-\end{aligned}
-\]</span></p>
-<p>Continuity equation:</p>
-<p><span class="math display">\[
-\nabla \cdot \mathbf{v} = \frac{\partial u}{\partial x}  + \frac{\partial v}{\partial y}   +  \frac{\partial \omega}{\partial p} = 0
-\]</span></p>
+<div id="cyclostrophic-wind" class="section level2">
+<h2>Cyclostrophic wind</h2>
+<p>If the radius of curvature is very small, as in a tornado, Coriolis force is negligible compared to centrifugal force, and there is an equilibrium between centrifugal force and the pressure gradient force. This is called cyclostrophic wind.</p>
 </div>
 
 

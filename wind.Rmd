@@ -1,0 +1,142 @@
+---
+title: "Wind"
+output: html_document
+---
+
+## Geostrophic wind
+
+Assuming a *horizontal* fluid that is (1) stationary
+
+$$
+\frac{\partial \mathbf{v}}{\partial t} = 0
+$$
+
+and (2) horizontally homogeneous
+
+$$
+(\mathbf{v} \cdot \nabla) \mathbf{v} = 0
+$$
+
+(such that overall the system is free of acceleration:
+
+$$
+\frac{d \mathbf{v}}{d t} = 0
+$$
+
+Coriolis force and gradient force compensate each other:
+
+$$
+f \ \mathbf{k} \times \mathbf{v}_h = \frac{1}{\rho} {\nabla_h p}
+$$
+
+Then the horizontal velocity $\mathbf{v}_h$ amounts to
+
+$$
+\mathbf{v}_h = \frac{1}{\rho f} \mathbf{k} \times {\nabla_h p}
+$$
+
+$$
+\mathbf{v}_h = \frac{1}{\rho f} \  \begin{vmatrix}i&j&k\\0&0&1\\\frac{\partial p}{\partial x}&\frac{\partial p}{\partial y}&\frac{\partial p}{\partial z}\end{vmatrix}
+$$
+
+or in components
+
+$$
+u = - \frac{1}{\rho f} \frac{\partial p}{\partial y}\\
+v = + \frac{1}{\rho f} \frac{\partial p}{\partial x}
+$$
+
+TBD 10.1
+
+Geostrophic wind is perpendicular to the pressure gradient and thus, parallel to the isobars, with low pressure to the left.
+
+## Thermal wind
+
+This is not really a wind, but refers to the change in *geostrophic wind with height*. A precondition is horizontal variation in temperature:
+
+$$
+\frac{\partial \mathbf{v}_{geo}}{\partial z} \sim \frac{g}{fT} \mathbf{k} \times \nabla_h T
+$$
+
+TBD 10.3
+
+Thermal wind thus is perpendicular to the temperature gradient, with warmer temperatures to the right.
+
+10.5
+
+## Geostrophic and thermal winds in the p system
+
+Geostrophic:
+
+$$
+\mathbf{v}_h = \frac{1}{ f} \mathbf{k} \times {\nabla_h \Phi}
+$$
+
+Or, in components:
+
+$$
+u = - \frac{1}{f} \frac{\partial \Phi}{\partial y}\\
+v = + \frac{1}{f} \frac{\partial \Phi}{\partial x}
+$$
+
+Thermal:
+
+$$
+\frac{\partial \mathbf{v}_{geo}}{\partial p} \sim - \frac{R}{fp} \mathbf{k} \times \nabla_h T
+$$
+
+## Barotropic and baroclinic atmospheres
+
+An atmosphere is called *barotropic* if isobars and lines of equal density (and their respective gradients) are parallel:
+
+$$
+\nabla \rho \times \nabla p = 0
+$$
+
+Equivalently - due to $p = \rho R T$ -- we have
+
+$$
+\nabla T \times \nabla p = 0
+$$
+
+and
+
+$$
+\nabla T \times \nabla \rho = 0
+$$
+
+So all of density, pressure, and temperature gradients are parallel.
+
+In a *baroclinic* atmosphere though, there is a temperature gradient on surfaces of constant pressure. Consequently, geostrophic wind changes with altitude (pressure).
+
+Therefore, for baroclinic conditions
+
+$$
+\frac{\partial \mathbf{v}_{geo}}{\partial p} \neq 0
+$$
+
+while for barotropic ones
+
+$$
+\frac{\partial \mathbf{v}_{geo}}{\partial p} = 0
+$$
+
+## Gradient wind
+
+Under realistic conditions, $\frac{\partial \mathbf{v}}{\partial t}$ will not be true, and as $\mathbf{v}$ is perpendicular to the isobars, these will not be able to be parallel. For curved isobars, of radius of curvature R, we have
+
+$$
+\frac{|\mathbf{v}_{geo}|}{|\mathbf{v}|} = 1 + \frac{|\mathbf{v}|}{fR}
+$$
+
+Thus for $\lim_{R \to +\infty}$, gradient wind and geostrophic wind are equal.
+
+The above correction term is equal to the relationship between centrifugal force and Coriolis force:
+
+$$
+\frac{|\mathbf{v}|}{fR} = \frac{|\mathbf{v}|^2}{fR|\mathbf{v}|} = \frac{Z}{C}
+$$
+
+## Cyclostrophic wind
+
+If the radius of curvature is very small, as in a tornado, Coriolis force is negligible compared to centrifugal force, and there is an equilibrium between centrifugal force and the pressure gradient force. This is called cyclostrophic wind.

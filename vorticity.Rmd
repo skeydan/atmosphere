@@ -86,12 +86,16 @@ $$
 \mathbf{v} = \mathbf{k} \times \nabla \Psi
 $$
 
+$$
+\mathbf{v} = \begin{vmatrix}i&j&k\\0&0&1\\\frac{\partial \Psi}{\partial x}&\frac{\partial \Psi}{\partial y}&\frac{\partial \Psi}{\partial z}\end{vmatrix}
+$$
+
 Equivalently:
 
 $$
 \begin{aligned}
 u = - \frac{\partial \Psi}{\partial y}\\
-v = - \frac{\partial \Psi}{\partial y}
+v = - \frac{\partial \Psi}{\partial x}
 \end{aligned}
 $$
 
@@ -134,4 +138,11 @@ $$
 &D = \nabla \times \mathbf{v} = \nabla \times (\nabla \phi) = \nabla^2 \phi \\
 &\zeta = \mathbf{k} \cdot \nabla \times \mathbf{v} = \nabla (\mathbf{k} \times \nabla \Psi) = \nabla^2 \Psi
 \end{aligned}
+$$
+
+## Vorticity equation
+
+$$
+\frac{\partial \zeta}{\partial t} = u \frac{\partial \zeta}{\partial  x} + v
+\frac{\partial \zeta}{\partial y} + v \frac{\partial f}{\partial y} = 0
 $$
