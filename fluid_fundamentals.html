@@ -531,8 +531,48 @@ summary {
 \]</span></p>
 </div>
 </div>
-<div id="momentum-equation" class="section level2">
-<h2>Momentum equation</h2>
+<div id="momentum-equation-euler-equation-navier-stokes-equation" class="section level2">
+<h2>Momentum equation (Euler equation / Navier-Stokes equation)</h2>
+<div id="advection" class="section level4">
+<h4>Advection</h4>
+<p>Momentum per unit volume</p>
+<p><span class="math display">\[
+\mathbf{m} = \rho \mathbf{v}
+\]</span></p>
+<p>The rate of change of momentum [per unit volume] of a fluid equals the force [per unit volume] acting on it, yielding</p>
+<p><span class="math display">\[
+\rho \frac{D\mathbf{v}}{Dt} = \mathbf{F}
+\]</span></p>
+<p>We thus have a way to model fluid acceleration due to forces (external like gravity as well as contact forces due to pressure and viscosity):</p>
+<p><span class="math display">\[
+\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} = \frac{\partial \mathbf{v}}{\partial t} + u \frac{\partial \mathbf{v}}{\partial x}  + v \frac{\partial \mathbf{v}}{\partial y}   +  w \frac{\partial \mathbf{v}}{\partial z} = \frac{\mathbf{F}}{\rho}
+\]</span></p>
+<div id="pressure" class="section level5">
+<h5>Pressure</h5>
+<p>Pressure force is the integral of pressure over a surface (with <span class="math inline">\(\mathbf{S}\)</span> being a vector normal to the surface and directed outwards), or (via the divergence theorem) the integral of the pressure gradient over a volume:</p>
+<p><span class="math display">\[
+\mathbf{F}_p = - \int_S p \ d \mathbf{S} =  \int_V \nabla p \ dV
+\]</span></p>
+<p>Pressure gradient per unit volume is then <span class="math inline">\(-\nabla p\)</span>.</p>
+</div>
+<div id="viscosity" class="section level5">
+<h5>Viscosity</h5>
+<p>Viscous force per unit volume is</p>
+<p><span class="math display">\[
+\mu \nabla^2 \mathbf{v}
+\]</span></p>
+<p>with <span class="math inline">\(\mu\)</span> being the coefficient of viscosity.</p>
+</div>
+<div id="momentum-equation-with-pressure-and-viscosity" class="section level5">
+<h5>Momentum equation with pressure and viscosity</h5>
+<p><span class="math display">\[
+\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} = -\frac{1}{\rho} \nabla p +
+\nu \nabla^2 \mathbf{v} + \mathbf{F}_b
+\]</span></p>
+<p>where <span class="math inline">\(\nu = \mu/\rho\)</span> is kinematic viscosity and <span class="math inline">\(\mathbf{F}_b\)</span> represent body forces such as gravity.</p>
+<p>This is also called the <em>Navier-Stokes</em> equation or, if viscosity is absent, the <em>Euler</em> equation.</p>
+</div>
+</div>
 </div>
 
 

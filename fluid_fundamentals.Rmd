@@ -7,47 +7,125 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Lagrangian vs. Eulerian viewpoints
+## Lagrangian (material) vs. Eulerian (field) viewpoints
 
--   Lagrangian (material): follows the moving parcel
+-   Lagrangian (material): follows the moving parcel, an *identifiable piece of material* (*system* view)
 
--   Eulerian (field): examines properties at fixed points
+-   Eulerian (field): examines properties at fixed points (*control volume* view)
 
-## Material (Lagrangian) derivative
+## Intuition: Acceleration field
 
-The material derivative is denoted by $D$.
-
-#### Of a fluid property
-
-The total time derivative of a property $\Phi$ of a piece of fluid is
+The acceleration of a fluid particle is:
 
 $$
-\frac{d\phi}{dt} = \frac{\partial\phi}{\partial t} + \frac{d\mathbf{x}}{dt} \cdot \nabla \phi
+\vec{a}_{particle} = \frac{d\vec{V}_{particle}}{dt}
 $$
 
-Here $\frac{\partial\phi}{\partial t}$ is the local rate of change of the property, while $\frac{d\mathbf{x}}{dt} = \mathbf{v}$ is the rate of change of position of the fluid. The material derivative then is
+But $\vec{V}_{particle}$ is the same as the local value of the velocity field at the location $(x_{particle} (t), y_{particle} (t), z_{particle} (t))$ of the particle.
+
+In other words,
+
+$$
+V_{particle}(t) = V(x_{particle}(t), y_ {particle}(t), z_{particle}(t), t)
+$$
+
+We therefore have to use the chain rule:
+
+$$
+\begin{aligned}
+\vec{a}_{particle} &=\frac{d\vec{V}_{particle}}{dt} \\
+&=\frac{d\vec{V}}{dt}\\
+&=\frac{d\vec{V}(x_{particle}(t), y_ {particle}(t), z_{particle}(t), t)}{dt} \\
+&=\frac{\partial \vec{V}}{dt}\frac{dt}{dt} + \frac{\partial \vec{V}}{x_{particle}}\frac{d x_{particle}}{dt} + \frac{\partial \vec{V}}{y_{particle}}\frac{d y_{particle}}{dt} + \frac{\partial \vec{V}}{z_{particle}}\frac{d z_{particle}}{dt}
+\end{aligned}
+$$
+
+Since $\frac{d x_{particle}}{dt}$ is $u$, the particle's speed in the $x$ direction, and analogously for $v$ and $w$, and the particle's position vector in the Lagrangian frame, $(x_{particle} (t), y_{particle} (t), z_{particle} (t))$ , is just equal to the position vector $(x, y, z)$ in the Eulerian frame, we have:\
+
+$$
+\begin{aligned}
+\vec{a}_{particle} &=\frac{d\vec{V}}{dt}\\
+&=\frac{\partial \vec{V}}{dt} + u\frac{\partial \vec{V}}{x} + v\frac{\partial \vec{V}}{y} + w\frac{\partial \vec{V}}{z}
+\end{aligned}
+$$
+
+Or in vector form:
+
+$$
+\begin{aligned}
+\vec{a} &=\frac{d\vec{V}}{dt}\\
+&=\frac{\partial \vec{V}}{dt} + \vec{V} \cdot \nabla \vec{V}\\
+&=\frac{\partial \vec{V}}{dt} +(\vec{V} \cdot \nabla) \vec{V}
+\end{aligned}
+$$
+
+In Cartesian coordinates, that is:
+
+$$
+a_x = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y}+ w \frac{\partial u}{\partial z}\\
+a_y = \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y}+ w \frac{\partial v}{\partial z}\\
+a_z = \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y}+ w \frac{\partial w}{\partial z}
+$$
+
+For example, the acceleration in the $x$ direction is
+
+-   the rate of change of velocity in the $x$ direction with time, plus
+
+-   the change of position in the $x$ direction, times the rate of change of velocity in the $x$ direction with change of position in the $x$ direction, plus
+
+-   the change of position in the $y$ direction, times the rate of change of velocity in the $x$ direction with change of position in the $y$ direction, plus
+
+-   the change of position in the $z$ direction, times the rate of change of velocity in the $x$ direction with change of position in the $z$ direction.
+
+## Material derivative
+
+The material derivative is the *total rate of change over time* of some property of a moving parcel of fluid.
+
+Thinking of the moving parcel in Lagrangian terms, this is just the derivative of the property with respect to time.
+
+In Eulerian terms, however, the total rate of change of a fluid property $\phi$ is composed of
+
+-   the partial derivative of $\phi$ with respect to time, holding position constant, plus
+
+-   the partial derivatives of $\phi$ with respect to to the spatial axes x, y, and z, times the rate of change of position of the parcel (holding time constant).
+
+For a fluid with velocity given by the field $\mathbf{v}(\mathbf{x}, t)$ and some property $\phi$, that property's total change in space and time is thus given by the chain rule
+
+$$
+\begin{aligned}
+\frac{d \phi}{dt}
+&=\frac{\partial\phi}{\partial t} + \frac{\partial\phi}{\partial x} \frac{dx}{dt} + \frac{\partial\phi}{\partial y} \frac{dy}{dt} + \frac{\partial\phi}{\partial z} \frac{dz}{dt}\\
+&= \frac{\partial\phi}{\partial t} + \frac{d\mathbf{x}}{dt}\cdot \nabla \phi\\
+&= \frac{\partial\phi}{\partial t} + \mathbf{v}\cdot \nabla \phi
+\end{aligned}
+$$
+
+This is the material derivative. It is designated by $D$ and may also be written
 
 $$
 \begin{aligned}
 \frac{D\phi}{Dt} 
 &=\frac{\partial\phi}{\partial t} + (\mathbf{v} \cdot \nabla) \phi\\
-&=\frac{\partial\phi}{\partial t} + u \frac{\partial \phi}{\partial x}  + v \frac{\partial \phi}{\partial y}   +  w \frac{\partial \phi}{\partial z}
+&=\frac{\partial\phi}{\partial t} + u \frac{\partial}{\partial x}(\phi)  + v \frac{\partial}{\partial y} (\phi)  +  w \frac{\partial}{\partial z}(\phi)
 \end{aligned}
 $$
 
-Here the operator $\frac{\partial}{\partial t} + (\mathbf{v} \cdot \nabla)$ is the Eulerian representation of the Lagrangian derivative as applied to a field.
+Here the operator $\frac{\partial}{\partial t} + (\mathbf{v} \cdot \nabla)$ is the *Eulerian representation of the Lagrangian derivative as applied to a field*.
 
-#### Of a vector field
+#### Material derivative of a vector field
 
-$$
+For a vector field, the material derivative $$
 \begin{aligned}
 \frac{D\mathbf{b}}{Dt} 
 &=\frac{\partial\mathbf{b}}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{b}\\
-&=\frac{\partial\mathbf{b}}{\partial t} + u \frac{\partial \mathbf{b}}{\partial x}  + v \frac{\partial \mathbf{b}}{\partial y}   +  w \frac{\partial \mathbf{b}}{\partial z}
 \end{aligned}
 $$
 
-in Cartesian coordinates.
+has to be applied to all components of the vector separately. For example:
+
+$$
+\frac{Db^x}{Dt}=\frac{\partial b^x}{\partial t} + u \frac{\partial b^x}{\partial x}  + v \frac{\partial b^x}{\partial y}   +  w \frac{\partial b^x}{\partial z}
+$$
 
 ## Mass conservation
 
@@ -139,4 +217,152 @@ $$
 \nabla \cdot \mathbf{v} = 0
 $$
 
-## Momentum equation
+## Momentum equation (Euler equation / Navier-Stokes equation)
+
+#### Advection
+
+Momentum per unit volume
+
+$$
+\mathbf{m} = \rho \mathbf{v}
+$$
+
+The rate of change of momentum [per unit volume] of a fluid equals the force [per unit volume] acting on it, yielding
+
+$$
+\rho \frac{D\mathbf{v}}{Dt} = \mathbf{F}
+$$
+
+We thus have a way to model fluid acceleration due to forces (external like gravity as well as contact forces due to pressure and viscosity):
+
+$$
+\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} = \frac{\partial \mathbf{v}}{\partial t} + u \frac{\partial \mathbf{v}}{\partial x}  + v \frac{\partial \mathbf{v}}{\partial y}   +  w \frac{\partial \mathbf{v}}{\partial z} = \frac{\mathbf{F}}{\rho}
+$$
+
+#### Pressure
+
+Pressure force is the integral of pressure over a surface (with $\mathbf{S}$ being a vector normal to the surface and directed outwards), or (via the divergence theorem) the integral of the pressure gradient over a volume:
+
+$$
+\mathbf{F}_p = - \int_S p \ d \mathbf{S} =  \int_V \nabla p \ dV
+$$
+
+Pressure gradient per unit volume is then $-\nabla p$.
+
+#### Viscosity
+
+Viscous force per unit volume is
+
+$$
+\mu \nabla^2 \mathbf{v}
+$$
+
+with $\mu$ being the coefficient of viscosity.
+
+#### Momentum equation with pressure and viscosity
+
+$$
+\frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} = -\frac{1}{\rho} \nabla p +
+\nu \nabla^2 \mathbf{v} + \mathbf{F}_b
+$$
+
+where $\nu = \mu/\rho$ is kinematic viscosity and $\mathbf{F}_b$ represent body forces such as gravity.
+
+This is also called the *Navier-Stokes* equation or, if viscosity is absent, the *Euler* equation.
+
+#### Hydrostatic approximation
+
+Leaving aside viscosity, the vertical component of the momentum equation is
+
+$$
+\frac{Dw}{Dt} = - \frac{1}{\rho}\frac{\partial p}{\partial z} -g
+$$
+
+If the fluid is static the pressure and gravitational terms balance each other, and we have the hydrostatic relatiom:
+
+$$
+\frac{\partial p}{\partial z} = - \rho g
+$$
+
+## Equation of state
+
+#### Ideal gas
+
+$$
+pV = N k_b T = n R^* T
+$$
+
+with $k_b$ the Boltzmann constant, $R^*$ the universal gas constant, $N$ the number of molecules, and $n$ the number of moles.
+
+Dividing by the total mass, $M = n\mu$, with $\mu$ the molar mass, gives
+
+$$
+p = \rho RT
+$$
+
+where $R = \frac{R^*}{\mu}$ is the specific gas constant.
+
+Using the inverse of density, specific volume, this is
+
+$$
+p \alpha = RT
+$$
+
+## Thermodynamics
+
+#### First law
+
+The internal energy of a body changes because of hear input and/or work done/by it:
+
+$$
+dU = dQ + dW
+$$
+
+(All variables understood as *per unit mass*.)
+
+Neither heat nor work are state variables, but fluxes of energy; however, both are related to state variables:
+
+Addition of heat increases *entropy*, to an amount dependent on temperature:
+
+$$
+dQ = T dS
+$$
+
+Work done on a body is equal to change in (specific) *volume* $\alpha$ times pressure (with positive work done on a body equaling a decrease in volume):
+
+$$
+dW = - p d \alpha
+$$
+
+This yields the fundamental thermodynamic relation:
+
+$$
+dU = T dS - p d \alpha
+$$
+
+#### Thermodynamic equation of a fluid
+
+In the atmosphere, changes in internal energy and density are due to external heating (radiation from the sun). For a particular fluid element this yields
+
+$$
+dU + p d \alpha = dQ
+$$
+
+For a location a fluid is moving over, take the material derivative. This yields the rate of heat input:
+
+$$
+\begin{aligned}
+\dot{Q} 
+&=\frac{DU}{Dt} + p \frac{D\alpha}{Dt} \\ 
+&=\frac{DU}{Dt} - \frac {p}{\rho^2} \frac{D\rho}{Dt}\\
+&=\frac{DU}{Dt} + \frac {p}{\rho} \nabla \cdot \mathbf{v}
+\end{aligned}
+$$
+
+##### Ideal gas
+
+In an ideal gas, internal energy is a function of temperature only, namely
+
+$$
+U = c_v T
+$$

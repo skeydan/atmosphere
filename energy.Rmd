@@ -9,15 +9,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Internal energy
 
-The change in internal energy $\Delta u$ is
+The first law of thermodynamics says that energy is conserved:
 
 $$
-\Delta u = u_2 - u_1 = \int_{T_1}^{T_2} c_v(T) dT
+dU = q_{in} - pdV = q_{in} - W_{by} = 0
+$$
+
+Here $q_{in}$ is heat put *into* the system (positive), while $pdV$ is work done *by* the system (positive).
+
+To see why work done by a system is $pdV$: If a gas expands against applied pressure, we have
+
+$$
+\Delta W = Fdx = pA\ dx = pdV
+$$
+
+So if the energy of a gas that is heated stays the same, it must also have lost energy through expansion.
+
+Or if is cooled but energy is constant, it must also have been compressed.
+
+If there is no change in volume, $dU$ is equal to just the amount of heat put in, $q_{in}$.
+
+Put differently, at constant volume,
+
+$$
+dU= U_2 - U_1 = \int_{T_1}^{T_2} c_v(T) dT
 $$
 
 where $c_v$ is specific heat capacity at *constant volume*.
 
-Put differently, the internal energy $U$ is
+The internal energy $U$ then is
 
 $$
 U = m c_v T
@@ -25,16 +45,39 @@ $$
 
 ## Enthalpy
 
-Enthalpy is internal energy plus potential energy (work done on the system):
+If volume is not constant, the expression for $dU$ does not simplify. If volume is not constant, but pressure is, we therefore work with a different state function: enthalpy.
+
+Enthalpy is defined as internal energy plus potential energy
 
 $$
 H = U + pV
 $$
 
-The change in enthalpy $\Delta h$ is
+The change in enthalpy $dH$ is
 
 $$
-\Delta h = h_2 - h_1 = \int_{T_1}^{T_2} c_p(T) dT
+\begin{align}
+dH &= dU + d(pV)\\
+&= dU + pdV + Vdp
+\end{align}
+$$
+
+But at constant pressure, this is
+
+$$
+\begin{align}
+dH &= dU + pdV 
+\end{align}
+$$
+
+Which means that
+
+$$
+dH = q_{in}
+$$
+
+Put differently, at constant pressure,$$
+dH = H_2 - H_1 = \int_{T_1}^{T_2} c_p(T) dT
 $$
 
 where $c_p$ is specific heat capacity at *constant pressure*. Put differently,
@@ -55,7 +98,7 @@ $$
 R = c_p - c_v
 $$
 
-The differential of enthalpy subsumes changes in internal energy as well as work done on a system:
+If pressure is not constant, the differential of enthalpy subsumes changes in internal energy as well as work done on a system:
 
 $$
 dH = dU + pdV + Vdp
